@@ -16,8 +16,7 @@ function ThemeToggleFallback() {
 }
 
 export const ThemeToggleClient = dynamic(
-  () =>
-    import("@/components/nav/theme-toggle").then((mod) => mod.ThemeToggle),
+  () => import("@/components/nav/theme-toggle").then((mod) => mod.ThemeToggle),
   {
     ssr: false,
     loading: () => <ThemeToggleFallback />,

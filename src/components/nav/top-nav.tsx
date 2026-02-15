@@ -22,11 +22,11 @@ export default function TopNav() {
         <div className="flex items-center">
           <div className="mr-1">
             <Button variant="link" className="cursor-pointer" asChild>
-              <Link href="/work-experience">Work</Link>
+              <Link href="/login">Login</Link>
             </Button>
 
             <Button variant="link" className="cursor-pointer" asChild>
-              <Link href="/projects">Projects</Link>
+              <Link href="/register">Register</Link>
             </Button>
           </div>
 

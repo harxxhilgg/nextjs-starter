@@ -130,7 +130,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Text selection styles - Vercel-like inverted effect */
   ::selection {
     background-color: var(--selection-bg);
     color: var(--selection-text);

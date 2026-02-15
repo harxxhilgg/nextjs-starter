@@ -26,13 +26,13 @@ export const columns: ColumnDef<Location>[] = [
 
       return (
         <span>
-          {date.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
+          {date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
           })}
         </span>
-      )
-    }
-  }
+      );
+    },
+  },
 ];

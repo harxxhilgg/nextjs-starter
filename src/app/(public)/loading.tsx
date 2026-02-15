@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { Ring } from "ldrs/react";
 import "ldrs/react/Ring.css";
@@ -14,5 +14,5 @@ export default function Loading() {
         color="hsl(var(--primary))"
       />
     </div>
-  )
+  );
 }

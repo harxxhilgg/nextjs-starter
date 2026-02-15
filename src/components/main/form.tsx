@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { zodResolver } from "@hookform/resolvers/zod"
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { useTransition } from "react";
 import * as z from "zod";
@@ -54,6 +54,7 @@ export function MainForm() {
       name: "",
       location: "",
     },
+    mode: "onChange",
   });
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
@@ -66,16 +67,22 @@ export function MainForm() {
         const result = await addLocation(formData);
 
         if (result.success) {
-          toast.success("Location saved successfully!");
+          toast.success("Location saved successfully!", {
+            closeButton: true,
+          });
 
           form.reset();
           router.refresh();
         } else {
-          toast.error(result.error || "Failed to save location");
+          toast.error(result.error || "Failed to save location", {
+            closeButton: true,
+          });
         }
       } catch (error) {
         console.error(error);
-        toast.error("Something went wrong. Please try again.");
+        toast.error("Something went wrong. Please try again.", {
+          closeButton: true,
+        });
       }
     });
   }
@@ -98,9 +105,7 @@ export function MainForm() {
               control={form.control}
               render={({ field, fieldState }) => (
                 <Field data-invalid={fieldState.invalid}>
-                  <FieldLabel htmlFor="form-user-info-name">
-                    Name
-                  </FieldLabel>
+                  <FieldLabel htmlFor="form-user-info-name">Name</FieldLabel>
 
                   <Input
                     {...field}
@@ -150,7 +155,8 @@ export function MainForm() {
                   </InputGroup>
 
                   <FieldDescription>
-                    Provide a detailed location description (minimum 5 characters).
+                    Provide a detailed location description (minimum 5
+                    characters).
                   </FieldDescription>
 
                   {fieldState.invalid && (
@@ -181,12 +187,7 @@ export function MainForm() {
             className="gap-2"
           >
             {isPending && (
-              <Tailspin
-                size="20"
-                stroke="3"
-                speed="0.9"
-                color="currentColor"
-              />
+              <Tailspin size="20" stroke="3" speed="0.9" color="currentColor" />
             )}
             Submit
           </Button>
