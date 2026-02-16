@@ -6,6 +6,7 @@ export type Location = {
   id: string;
   name: string;
   location: string;
+  createdBy: string;
   createdAt: Date;
 };
 
@@ -17,6 +18,10 @@ export const columns: ColumnDef<Location>[] = [
   {
     accessorKey: "location",
     header: "Location",
+  },
+  {
+    accessorKey: "createdBy",
+    header: "Created By"
   },
   {
     accessorKey: "createdAt",

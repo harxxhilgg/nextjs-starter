@@ -17,5 +17,6 @@ model Location {
   id        String   @id @default(cuid())
   name      String
   location  String
+  createdBy String
   createdAt DateTime @default(now())
 }
