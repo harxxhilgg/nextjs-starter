@@ -25,7 +25,7 @@ export default async function ProtectedLayout({
         <AppSidebar user={user} />
 
         <main className="flex-1">
-          <div className="flex h-12 items-center border-b">
+          <div className="flex h-14 items-center border-b px-1">
             <SidebarTrigger />
 
             <Separator orientation="vertical" className="ml-2 mr-3 h-6" />

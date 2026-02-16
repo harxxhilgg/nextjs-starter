@@ -24,7 +24,7 @@ export default async function LoginPage() {
           </p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col gap-2">
           <LoginButton />
         </div>
       </div>
