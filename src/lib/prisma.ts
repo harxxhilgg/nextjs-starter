@@ -5,8 +5,15 @@ const globalForPrisma = global as unknown as {
   prisma: PrismaClient;
 };
 
+// In production, use pooler URL for serverless connections
+// In development, use direct connection (faster, same as migrations)
+const connectionString =
+  process.env.NODE_ENV === "production"
+    ? process.env.DATABASE_POOLER_URL
+    : process.env.DATABASE_URL;
+
 const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_POOLER_URL,
+  connectionString,
 });
 
 const prisma =
