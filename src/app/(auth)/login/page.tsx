@@ -13,7 +13,6 @@ export default async function LoginPage() {
   } = await supabase.auth.getUser();
 
   if (user && !error) {
-    await new Promise(resolve => setTimeout(resolve, 2000));
     redirect("/dashboard");
   }
 
