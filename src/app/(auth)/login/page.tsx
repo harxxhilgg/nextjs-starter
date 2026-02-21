@@ -1,5 +1,8 @@
 import { LoginButton } from "@/components/auth/login-button";
+import { LoginLogo } from "@/components/auth/login-logo";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function LoginPage() {
@@ -10,24 +13,32 @@ export default async function LoginPage() {
   } = await supabase.auth.getUser();
 
   if (user && !error) {
+    await new Promise(resolve => setTimeout(resolve, 2000));
     redirect("/dashboard");
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <div className="w-full max-w-md space-y-8 px-4">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight">Welcome Back</h1>
+    <div className="flex flex-col h-screen justify-center items-center gap-0.5 sm:gap-2">
+      <LoginLogo />
 
-          <p className="mt-2 text-sm text-muted-foreground">
-            Sign in to your account to continue
-          </p>
-        </div>
+      <Card className="w-full max-w-80 sm:max-w-sm">
+        <CardHeader className="text-center gap-3">
+          <CardTitle>Welcome Back</CardTitle>
 
-        <div className="flex flex-col gap-2">
+          <CardDescription>Login with your Google, Github or Discord account</CardDescription>
+        </CardHeader>
+
+        <CardContent className="grid gap-2 w-full max-w-sm mx-auto">
           <LoginButton />
-        </div>
-      </div>
+        </CardContent>
+      </Card>
+
+      <p className="text-secondary text-sm my-3 w-full max-w-xs text-center">
+        By Loggin in, you agree to our {" "}
+        <Link href="/terms" className="underline underline-offset-3 hover:text-primary duration-200 transition-colors">Terms of Service</Link>
+        {" "} and {" "}
+        <Link href="/policy" className="underline underline-offset-3 hover:text-primary duration-200 transition-colors">Privacy Policy</Link>.
+      </p>
     </div>
   );
 }

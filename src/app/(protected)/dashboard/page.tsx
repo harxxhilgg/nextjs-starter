@@ -12,10 +12,6 @@ export default async function DashboardPage() {
         <p className="font-semibold tracking-wide">
           Hellowww!, {user?.user_metadata.name}.
         </p>
-
-        <p>
-          {process.env.NODE_ENV}
-        </p>
       </div>
     </div>
   );

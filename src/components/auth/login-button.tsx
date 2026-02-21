@@ -40,30 +40,30 @@ export function LoginButton() {
         variant="outline"
         size="lg"
         onClick={handleGoogleLogin}
-        className="cursor-pointer font-semibold"
+        className="cursor-pointer font-semibold relative pl-10"
       >
-        <GoogleLogoIcon />
-        Sign in with Google
+        <GoogleLogoIcon className="absolute left-4 top-1/2 -translate-y-1/2" />
+        <span className="mx-auto">Sign in with Google</span>
       </Button>
 
       <Button
         variant="default"
         size="lg"
         onClick={handleGitHubLogin}
-        className="cursor-pointer font-semibold"
+        className="cursor-pointer font-semibold relative pl-10"
       >
-        <GithubLogoIcon />
-        Sign in with GitHub
+        <GithubLogoIcon className="absolute left-4 top-1/2 -translate-y-1/2" />
+        <span className="mx-auto">Sign in with GitHub</span>
       </Button>
 
       <Button
         variant="default"
         size="lg"
         onClick={handleDiscordLogin}
-        className="cursor-pointer font-semibold text-primary bg-[#5865F2] hover:bg-[#5865F295]"
+        className="cursor-pointer font-semibold relative pl-10 text-primary bg-[#5865F2] hover:bg-[#5865F295]"
       >
-        <DiscordLogoIcon />
-        Sign in with Discord
+        <DiscordLogoIcon className="absolute left-4 top-1/2 -translate-y-1/2" />
+        <span className="mx-auto">Sign in with Discord</span>
       </Button>
     </>
   );
