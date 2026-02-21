@@ -22,7 +22,7 @@ export default async function Home() {
         </div>
 
         <div className="max-w-3xl">
-          <h1 id="main-heading" className={`text-center text-3xl sm:text-6xl font-semibold`}>
+          <h1 id="main-heading" className={`text-center text-3xl sm:text-6xl font-semibold leading-tight`}>
             Ship next.js apps with supabase & vercel faster.
           </h1>
         </div>
