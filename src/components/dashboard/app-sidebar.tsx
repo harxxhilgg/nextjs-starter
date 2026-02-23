@@ -12,10 +12,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "../ui/sidebar";
-import { Home, MapPin, User } from "lucide-react";
+import { Home } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FlyingSaucerIcon } from "@phosphor-icons/react";
+import { AirTrafficControlIcon, FlyingSaucerIcon, MapPinAreaIcon, UserIcon } from "@phosphor-icons/react";
 import { UserNav } from "./user-nav";
 
 const menuItems = [
@@ -26,13 +26,18 @@ const menuItems = [
   },
   {
     title: "Locations",
-    icon: MapPin,
+    icon: MapPinAreaIcon,
     href: "/locations",
   },
   {
     title: "Profile",
-    icon: User,
+    icon: UserIcon,
     href: "/profile",
+  },
+  {
+    title: "Gen AI",
+    icon: AirTrafficControlIcon,
+    href: "/gen-ai",
   },
 ];
 

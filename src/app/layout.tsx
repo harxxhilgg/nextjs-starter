@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import "./globals.css";
 import { geist } from "@/lib/fonts";
 import { ThemeProvider } from "next-themes";
