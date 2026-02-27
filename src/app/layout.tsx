@@ -5,6 +5,7 @@ import { ThemeProvider } from "next-themes";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Nextry",
@@ -23,6 +24,7 @@ export default function RootLayout({
           <TooltipProvider>
             <NuqsAdapter>
               {children}
+              <Analytics />
             </NuqsAdapter>
             <Toaster position="top-right" />
           </TooltipProvider>
