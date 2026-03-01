@@ -10,6 +10,7 @@ const routeTitles: Record<string, string> = {
   "/billing": "Billing",
   "/notifications": "Notifications",
   "/roaster": "Roaster",
+  "/roaster/history": "History"
 };
 
 export function PageTitle() {

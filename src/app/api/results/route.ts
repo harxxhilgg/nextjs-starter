@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { createClient } from "@/lib/supabase/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   try {
     const supabase = await createClient();
-
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -14,10 +13,19 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { searchParams } = new URL(req.url);
+    const cursor = searchParams.get("cursor");
+
     const results = await prisma.roastResult.findMany({
       where: { userId: user.id },
-      orderBy: { createdAt: "desc" },
-      take: 20, // sidebar size
+      orderBy: [{ createdAt: "desc" }, { id: "desc" }],
+      take: 20,
+      ...(cursor && {
+        skip: 1,
+        cursor: {
+          id: cursor,
+        },
+      }),
       select: {
         id: true,
         name: true,

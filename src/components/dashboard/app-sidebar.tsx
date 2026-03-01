@@ -29,6 +29,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
+import { Button } from "../ui/button";
 
 const menuItems = [
   {
@@ -61,11 +62,11 @@ interface AppSidebarProps {
 
 export function AppSidebar({ user, roastResults }: AppSidebarProps) {
   const pathname = usePathname();
-
-  const hasRoastResults = roastResults.length > 0;
+  const hasRoasts = roastResults.length > 0;
+  const has15orMoreRoasts = roastResults.length >= 15;
 
   return (
-    <Sidebar collapsible="icon" variant="floating" side="left">
+    <Sidebar collapsible="icon" variant="sidebar" side="left">
       <SidebarHeader className="transition-all">
         <Link
           href="/dashboard"
@@ -101,10 +102,7 @@ export function AppSidebar({ user, roastResults }: AppSidebarProps) {
                 </SidebarMenuItem>
               ))}
 
-              <Collapsible
-                defaultOpen={pathname.startsWith("/roaster")}
-                asChild
-              >
+              <Collapsible defaultOpen={pathname.startsWith("/roaster")} asChild>
                 <SidebarMenuItem>
                   <CollapsibleTrigger asChild>
                     <SidebarMenuButton className="group flex items-center justify-between cursor-pointer">
@@ -120,22 +118,18 @@ export function AppSidebar({ user, roastResults }: AppSidebarProps) {
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       <SidebarMenuSubItem>
-                        <SidebarMenuSubButton
-                          asChild
-                          isActive={pathname === "/roaster"}
-                        >
+                        <SidebarMenuSubButton isActive={pathname === "/roaster"} asChild>
                           <Link href="/roaster">
                             <SquarePenIcon />
                             New roast
                           </Link>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
+                      <div className="max-h-154 overflow-y-auto pr-1">
+                        <p className="px-1.5 text-secondary text-sm mt-1 font-medium">
+                          {hasRoasts ? "Your chats" : "No chats"}
+                        </p>
 
-                      <p className="px-2 text-secondary font-semibold text-xs mt-1">
-                        {hasRoastResults ? "History" : "No history yet"}
-                      </p>
-
-                      <div className="max-h-100 overflow-y-auto pr-1">
                         {roastResults.map((item) => {
                           function formatDate(date: Date) {
                             const d = new Date(date);
@@ -147,14 +141,8 @@ export function AppSidebar({ user, roastResults }: AppSidebarProps) {
                           }
 
                           return (
-                            <SidebarMenuSubItem
-                              key={item.id}
-                              className="my-0.5"
-                            >
-                              <SidebarMenuSubButton
-                                isActive={pathname === `/roaster/${item.id}`}
-                                asChild
-                              >
+                            <SidebarMenuSubItem key={item.id} className="my-0.5">
+                              <SidebarMenuSubButton isActive={pathname === `/roaster/${item.id}`} asChild>
                                 <Link href={`/roaster/${item.id}`}>
                                   <div className="flex gap-1 w-full items-end justify-between">
                                     <span className="truncate">
@@ -170,6 +158,18 @@ export function AppSidebar({ user, roastResults }: AppSidebarProps) {
                             </SidebarMenuSubItem>
                           );
                         })}
+
+                        {has15orMoreRoasts && (
+                          <SidebarMenuSubItem className="mt-1">
+                            <SidebarMenuSubButton asChild>
+                              <Button variant="outline" size="xs" className="mx-1" asChild>
+                                <Link href="/roaster/history">
+                                  See all history
+                                </Link>
+                              </Button>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        )}
                       </div>
                     </SidebarMenuSub>
                   </CollapsibleContent>
