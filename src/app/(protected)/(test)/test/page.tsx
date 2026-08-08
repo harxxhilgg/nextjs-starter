@@ -1,17 +1,17 @@
-import { GradientTextSection } from "@/components/test-new/gradient-text";
-import { NUQSTest } from "@/components/test-new/nuqs-test";
-import { TextPressureSection } from "@/components/test-new/text-pressure";
-import { TextTypeSection } from "@/components/test-new/text-type";
-import { DecryptedTextSection } from "@/components/test-new/decrypted-text";
-import { ScrollVelocitySection } from "@/components/test-new/scroll-velocity";
-import { AntiGravitySection } from "@/components/test-new/anti-gravity";
-import { LogoLoopSection } from "@/components/test-new/logo-loop";
-import { SilkSection } from "@/components/test-new/silk-bg";
-import { ImageCarousel } from "@/components/test-new/image-carousel";
-import { DrawerEx } from "@/components/test-new/drawer-ex";
+// import { GradientTextSection } from "@/components/test-new/gradient-text";
+// import { NUQSTest } from "@/components/test-new/nuqs-test";
+// import { TextPressureSection } from "@/components/test-new/text-pressure";
+// import { TextTypeSection } from "@/components/test-new/text-type";
+// import { DecryptedTextSection } from "@/components/test-new/decrypted-text";
+// import { ScrollVelocitySection } from "@/components/test-new/scroll-velocity";
+// import { AntiGravitySection } from "@/components/test-new/anti-gravity";
+// import { LogoLoopSection } from "@/components/test-new/logo-loop";
+// import { SilkSection } from "@/components/test-new/silk-bg";
+// import { ImageCarousel } from "@/components/test-new/image-carousel";
+// import { DrawerEx } from "@/components/test-new/drawer-ex";
+// import { BtnSound } from "@/components/test-new/btn-sound";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { BtnSound } from "@/components/test-new/btn-sound";
 
 export default async function TestPage() {
   return (
@@ -24,15 +24,15 @@ export default async function TestPage() {
         </Link>
       </div>
 
-      <div className="w-full max-w-xl">
+      {/* <div className="w-full max-w-xl">
         <NUQSTest />
-      </div>
+      </div> */}
 
-      <div className="max-w-5xl">
+      {/* <div className="max-w-5xl">
         <TextPressureSection />
-      </div>
+      </div> */}
 
-      <div className="max-w-5xl">
+      {/* <div className="max-w-5xl">
         <TextTypeSection />
       </div>
 
@@ -58,9 +58,9 @@ export default async function TestPage() {
 
       <div className="w-full max-w-4xl h-150">
         <SilkSection />
-      </div>
+      </div> */}
 
-      <div className="w-full max-w-4xl space-y-6">
+      {/* <div className="w-full max-w-4xl space-y-6">
         <p className="text-2xl font-semibold">Carousel Example</p>
         <ImageCarousel />
       </div>
@@ -76,7 +76,7 @@ export default async function TestPage() {
         <div className="space-x-6">
           <BtnSound />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
